@@ -1,3 +1,7 @@
+  /*jshint esversion: 6 */
+
+
+
 /**
  * Class => Item(name)
  * -----------------------------
@@ -8,6 +12,11 @@
  * @property {string} name
  */
 
+class Item {
+  constructor(name){
+    this.name = name;
+  }
+}
 
 /**
  * Class => Weapon(name, damage)
@@ -24,6 +33,13 @@
  * @param {number} damage   The weapon's damage.
  * @property {number} damage
  */
+
+ class Weapon extends Item{
+  constructor(name, damage){
+    super(name);
+    this.damage = damage;
+  }
+ }
 
 
 /**
@@ -48,6 +64,13 @@
  * @param {number} energy     The energy the food provides.
  * @property {number} energy
  */
+
+ class Food extends Item{
+  constructor(name, energy){
+    super(name);
+    this.energy = energy;
+  }
+ }
 
 
 /**
@@ -78,6 +101,28 @@
  * @property {method} getPack              Returns private variable `pack`.
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
+
+class Player{
+
+  constructor(name, health, strength, speed){
+    this.name = name;
+    this.health = health;
+    this.strength = strength;
+    this.speed = speed;
+    this._pack = [];
+    this._maxHealth = health;
+    this.isAlive = true;
+    this.equipped = false;
+  }
+
+  getPack(){
+    return this._pack;
+  }
+
+  getMaxHealth(){
+    return this._maxHealth;
+  }
+
 
 
 /**
@@ -209,6 +254,10 @@
  */
 
 
+
+
+
+}
 /**
  * Class => Zombie(health, strength, speed)
  * -----------------------------

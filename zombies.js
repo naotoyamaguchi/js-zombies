@@ -136,6 +136,9 @@ class Player{
  *
  * @name checkPack
  */
+  checkPack(){
+    console.log(this.getPack());
+  }
 
 
 /**
@@ -155,6 +158,15 @@ class Player{
  * @param {Item/Weapon/Food} item   The item to take.
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
+
+ takeItem(item){
+  if(this._pack.length <= 2){
+    this._pack.push(item);
+  } else {
+    console.log("pack is full");
+    return false;
+  }
+ }
 
 
 /**
@@ -183,6 +195,17 @@ class Player{
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 
+ discardItem(item){
+  if(this._pack.indexOf(item) > -1){
+    this._pack.splice(this._pack.indexOf(item), 1);
+    console.log(this.name + " the item was discarded");
+    return true;
+  } else {
+    console.log("nothing was discarded since hte item could not be found");
+    return false;
+  }
+ }
+
 
 /**
  * Player Class Method => equip(itemToEquip)
@@ -204,6 +227,18 @@ class Player{
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
 
+ equip(itemToEquip){
+  if(this._pack.indexOf(itemToEquip) > -1 && itemToEquip instanceof Weapon){
+    if(this.equipped === false){
+      this.equipped = itemToEquip;
+      this._pack.splice(this._pack.indexOf(itemToEquip), 1);
+    } else {
+      var holder = this._pack.splice(this._pack.indexOf(itemToEquip), 1, this.equipped);
+      this.equipped = holder[0];
+    }
+  }
+ }
+
 
 /**
  * Player Class Method => eat(itemToEat)
@@ -224,6 +259,18 @@ class Player{
  * @param {Food} itemToEat  The food item to eat.
  */
 
+ eat(itemToEat){
+  if(itemToEat instanceof Food && this._pack.indexOf(itemToEat) > -1){
+    this.health += itemToEat.energy;
+    this._pack.splice(this._pack.indexOf(itemToEat), 1);
+    if(this.health > this._maxHealth){
+      this.health = this._maxHealth;
+    }
+  }
+ }
+
+
+
 
 /**
  * Player Class Method => useItem(item)
@@ -237,6 +284,15 @@ class Player{
  * @name useItem
  * @param {Item/Weapon/Food} item   The item to use.
  */
+
+ useItem(item){
+  if(item instanceof Weapon){
+    this.equip(item);
+  }
+  if(item instanceof Food){
+    this.eat(item);
+  }
+ }
 
 
 /**
@@ -252,6 +308,14 @@ class Player{
  * @name equippedWith
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
+
+ equippedWith(){
+  if(this.equipped !== false){
+    return this.equipped.name;
+  } else {
+    return false;
+  }
+ }
 
 
 
@@ -273,6 +337,8 @@ class Player{
  * @property {number} speed
  * @property {boolean} isAlive      Default value should be `true`.
  */
+
+ 
 
 
 /**

@@ -122,4 +122,8 @@ describe('Player', ()=>{
   it('should have a private value called pack', ()=>{
     player.should.have.a.property('pack');
   });
+
+  it('pack property should be by default, an empty array', ()=>{
+    player.pack.should.equal([]);
+  });
 });

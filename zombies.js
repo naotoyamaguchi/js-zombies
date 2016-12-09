@@ -8,6 +8,12 @@
  * @property {string} name
  */
 
+ class Item{
+  constructor(name){
+    this.name = name;
+  }
+ }
+
 
 /**
  * Class => Weapon(name, damage)
@@ -24,6 +30,10 @@
  * @param {number} damage   The weapon's damage.
  * @property {number} damage
  */
+
+
+
+
 
 
 /**
@@ -359,3 +369,7 @@ function runGame() {
   // console.log("After health: " + player.health);
   // player.checkPack();
 }
+
+module.exports = {
+ item: Item
+};

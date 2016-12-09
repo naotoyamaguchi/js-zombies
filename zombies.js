@@ -64,6 +64,13 @@ class Weapon extends Item{
  * @property {number} energy
  */
 
+ class Food extends Item{
+  constructor(name, energy){
+    super(name);
+    this.energy = energy;
+  }
+ }
+
 
 /**
  * Food Extends Item Class
@@ -94,6 +101,11 @@ class Weapon extends Item{
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
 
+class Person{
+  constructor(){
+    
+  }
+}
 
 /**
  * Player Class Method => checkPack()
@@ -377,5 +389,7 @@ function runGame() {
 
 module.exports = {
  item: Item,
- weapon: Weapon
+ weapon: Weapon,
+ food: Food,
+ person: Person
 };

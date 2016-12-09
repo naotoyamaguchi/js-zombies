@@ -31,7 +31,7 @@ describe('Weapon', ()=> {
   let weapon;
 
   beforeEach(()=>{
-    weapon = new Zombies.weapon('weaponName', 10);
+    weapon = new Zombies.weapon('Katana', 100);
   });
 
   it('should be a class', ()=>{
@@ -49,5 +49,49 @@ describe('Weapon', ()=> {
   it('damage property should be a number', ()=> {
     weapon.damage.should.be.a('number');
   });
+
+  it('should be an instance of item', ()=> {
+    weapon.should.be.an.instanceof(Zombies.item);
+  });
+
+  it('the weapon name should be first parameter', ()=>{
+    let crossbow = new Zombies.weapon('crossbow', 100);
+    crossbow.name.should.equal('crossbow');
+  });
 });
 
+describe('Food', ()=>{
+  let food;
+
+  beforeEach(()=>{
+    food = new Zombies.food('Apple', 50);
+  });
+
+  it('should have a property name', ()=>{
+    food.should.have.a.property('name');
+  });
+
+  it('should have a property energy', ()=>{
+    food.should.have.a.property('energy');
+  });
+
+  it('energy property should be a number', ()=>{
+    food.energy.should.be.a('number');
+  });
+
+  it('should be an instance of item', ()=> {
+    food.should.be.an.instanceof(Zombies.item);
+  });
+});
+
+describe('Player', ()=>{
+  let player;
+
+  beforeEach(()=>{
+    player = new Zombies.player('Naoto', 100, 25, 25);
+  });
+
+  it('should have a property name', ()=>{
+    player.should.have.a.property('name');
+  });
+});

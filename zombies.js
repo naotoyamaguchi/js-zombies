@@ -101,9 +101,9 @@ class Weapon extends Item{
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
 
-class Person{
-  constructor(){
-    
+class Player{
+  constructor(name){
+    this.name = name;
   }
 }
 
@@ -391,5 +391,5 @@ module.exports = {
  item: Item,
  weapon: Weapon,
  food: Food,
- person: Person
+ player: Player
 };

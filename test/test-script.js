@@ -124,6 +124,6 @@ describe('Player', ()=>{
   });
 
   it('pack property should be by default, an empty array', ()=>{
-    player.pack.should.equal([]);
+    player.pack.should.deep.equal([]);
   });
 });

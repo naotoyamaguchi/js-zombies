@@ -126,4 +126,8 @@ describe('Player', ()=>{
   it('pack property should be by default, an empty array', ()=>{
     player.pack.should.deep.equal([]);
   });
+
+  it('should have a private value called maxHealth', ()=>{
+    player.should.have.a.property('maxHealth');
+  });
 });

@@ -102,9 +102,10 @@ class Weapon extends Item{
  */
 
 class Player{
-  constructor(name, health){
+  constructor(name, health, strength){
     this.name = name;
     this.health = health;
+    this.strength = strength;
   }
 }
 

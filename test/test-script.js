@@ -103,7 +103,7 @@ describe('Player', ()=>{
     player.health.should.be.a('number');
   });
 
-  it('should have a property speed', ()=>{
+  it('should have a property strength', ()=>{
     player.should.have.a.property('strength');
     });
 });

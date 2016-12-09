@@ -118,4 +118,8 @@ describe('Player', ()=>{
   it('speed property should be a number', ()=>{
     player.speed.should.be.a('number');
   });
+
+  it('should have a private value called pack', ()=>{
+    player.should.have.a.property('pack');
+  });
 });

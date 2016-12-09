@@ -98,4 +98,8 @@ describe('Player', ()=>{
   it('should have a property health', ()=>{
     player.should.have.a.property('health');
   });
+
+  it('health property should be a number', ()=>{
+    player.health.should.be.a('number');
+  });
 });
